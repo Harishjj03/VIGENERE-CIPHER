@@ -1,6 +1,7 @@
 # VIGENERE-CIPHER
 ## EX. NO: 4
- 
+## Name : HARISHBALA J
+## Reg NO : 212224223002
 
 ## IMPLEMETATION OF VIGENERE CIPHER
  
@@ -30,7 +31,45 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
 ## PROGRAM
+```c
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
+int main()
+{
+    char p[100], k[100];
+    int i, j, n, m;
+
+    printf("Enter Plain Text: ");
+    scanf("%99s", p);
+
+    printf("Enter Key: ");
+    scanf("%99s", k);
+
+    n = strlen(p);
+    m = strlen(k);
+
+    printf("Encrypted Text: ");
+
+    for(i = 0, j = 0; i < n; i++, j++)
+    {
+        if(j == m)
+            j = 0;
+
+        p[i] = toupper(p[i]);
+        k[j] = toupper(k[j]);
+
+        printf("%c", ((p[i] - 'A' + k[j] - 'A') % 26) + 'A');
+    }
+
+    printf("\n");
+    return 0;
+}
+```
 ## OUTPUT
+<img width="1526" height="865" alt="image" src="https://github.com/user-attachments/assets/fcdd2a09-e962-496a-900e-e3994e7c7e51" />
+
 
 ## RESULT
+The Vigenère Cipher encryption technique was implemented successfully in C. The program accepts the plaintext and keyword from the user and displays the corresponding ciphertext.
